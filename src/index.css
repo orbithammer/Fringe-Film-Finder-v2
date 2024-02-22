@@ -50,8 +50,7 @@ width: 0;
   border-radius: 20px;
 }
 
-.user,
-.user-temp {
+.user {
   align-self: flex-end;
   background-color: #3EB489;
   margin: 0.25rem 0.5rem 0.25rem 1rem;
@@ -59,18 +58,12 @@ width: 0;
   border-top-right-radius: 0;
 }
 
-.ai,
-.start-message {
+.ai {
   align-self: flex-start;
   background-color: #2A5DAC;
   color: #fff;
   margin: 0.25rem 1rem 0.25rem 0.25rem;
   border-top-left-radius: 0;
-}
-
-.user-temp,
-.start-message {
-  padding: 1rem 0.25rem;
 }
 
 .user,
