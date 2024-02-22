@@ -83,7 +83,8 @@ width: 0;
 }
 
 .user-input {
-  line-height: 2rem;
+  line-height: 3rem;
+  font-size: 1rem;
   max-width: 30rem;
   width: 100%;
   font-family: inherit;
@@ -92,7 +93,7 @@ width: 0;
 
 .send-button {
   background-color: #2A5DAC;
-  height: 2rem;
+  height: 3rem;
   width: 3rem;
   border: none;
   margin-left: 0.25rem;
