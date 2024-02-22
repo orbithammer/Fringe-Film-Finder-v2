@@ -5,7 +5,6 @@ import { StringOutputParser } from "langchain/schema/output_parser"
 import { RunnablePassthrough, RunnableSequence } from "langchain/schema/runnable"
 import { retriever } from '/utils/retriever'
 import { combineDocuments } from "/utils/combineDocuments"
-import { formatConvHistory } from "/utils/formatConvHistory"
 import ClapperIcon from "/images/clapper.svg"
 import ThinkingIcon from "/images/thinking.svg"
 import SendIcon from "/images/send.svg"
@@ -14,7 +13,7 @@ import { chain } from "/utils/langchain"
 
 
 export default function App(){
-  const [convHistory, setConvHistory] = useState([{ role:"ai", message: "What kind of movie would you like to watch?"}])
+  const [convHistory, setConvHistory] = useState([{ role:"ai", message: "What genre of movie would you like to watch? From what decade? Year? Country? Director? Actor? "}])
   const [userReply, setUserReply] = useState("I want to watch a comedy.")
   // const [retrieverData, setRetrieverData] = useState([])
   const [isThinking, setIsThinking] = useState(false)
@@ -31,7 +30,7 @@ export default function App(){
         statement: userReply,
         conv_history: convHistory
       })
-      console.log("user convHistory: ", convHistory)
+      // console.log("user convHistory: ", convHistory)
       // console.log("convHistoryUserReply ", convHistoryUserReply)
       console.log("response: ", response)
       const convHistoryAIReply = {role:"ai", message: response}

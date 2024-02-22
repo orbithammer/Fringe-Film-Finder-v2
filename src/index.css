@@ -125,4 +125,34 @@ width: 0;
 
 .chat-message img {
   margin: 1rem 0;
+  border-radius: 10px;
+}
+
+.chat-message a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.chat-message {
+  transition: all 0.5s ease;
+}
+
+.user {
+  margin-left: 1rem;
+  animation: slideFromRight 0.5s forwards;
+}
+
+.ai {
+  margin-right: 1rem;
+  animation: slideFromLeft 0.5s forwards;
+}
+
+@keyframes slideFromRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slideFromLeft {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
 }

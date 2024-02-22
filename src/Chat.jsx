@@ -1,19 +1,17 @@
 import React from "react"
 
 function styleText(message) {
-    console.log("styleText message: ", message)
+    // console.log("styleText message: ", message)
     const srcRegex = /(https?:\/\/[^\s]+)/g
     const imdbRegex = /\b(tt\d{6,8})\b/g;
     const markdownRegex = /\!\[(.*?)\]\((.*?)\)/
-    
-        // console.log("regex text true")
-        const src = message.match(srcRegex)
-        const imdbID = message.match(imdbRegex)
-        const srcRemoved = message.replace(srcRegex, "")
-        const imdbIdRemoved = srcRemoved.replace(imdbRegex, "")
-        const markdownRemoved = imdbIdRemoved.replace(markdownRegex, "")
-        console.log("markdownRemoved: ", markdownRemoved)
-        return {markdownRemoved, src, imdbID}
+    const src = message.match(srcRegex)
+    const imdbID = message.match(imdbRegex)
+    const srcRemoved = message.replace(srcRegex, "")
+    const imdbIdRemoved = srcRemoved.replace(imdbRegex, "")
+    const markdownRemoved = imdbIdRemoved.replace(markdownRegex, "")
+    // console.log("markdownRemoved: ", markdownRemoved)
+    return {markdownRemoved, src, imdbID}
         // (
         //     <>
         //         <p>
