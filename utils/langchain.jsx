@@ -1,3 +1,4 @@
+// Importing necessary modules and functions
 import { ChatOpenAI } from "langchain/chat_models/openai"
 import { PromptTemplate } from "langchain/prompts"
 import { StringOutputParser } from "langchain/schema/output_parser"
@@ -5,17 +6,24 @@ import { RunnablePassthrough, RunnableSequence } from "langchain/schema/runnable
 import { retriever } from '/utils/retriever'
 import { combineDocuments } from "/utils/combineDocuments"
 
+// Getting the OpenAI API key from the environment variables
 const openAIApiKey = import.meta.env.VITE_OPENAI_API_KEY
+
+// Creating a new instance of ChatOpenAI with the OpenAI API key and temperature set to 0
 const llm = new ChatOpenAI({ 
   openAIApiKey,
   temperature: 0 })
 
+// Defining the standalone statement template
 const standaloneStatementTemplate = `Given some conversation history (if any) and a statement, convert it to a standalone statement. If the statement is a sentence fragment, add "I want to watch" to the beginning.
     conversation history: {conv_history}
     statement:{statement}
     standalone statement:`
+
+// Creating a prompt from the standalone statement template
 const standaloneStatementPrompt = PromptTemplate.fromTemplate(standaloneStatementTemplate)
 
+// Defining the recommendation template
 const recommendationTemplate = `
     You are a movie expert. 
     When given a statement, recommend movies in a friendly manner. 
@@ -32,22 +40,28 @@ const recommendationTemplate = `
     context: {context}
     conversation history: {conv_history}
     movie recommendation:`
+
+// Creating a prompt from the recommendation template
 const recommendationPrompt = PromptTemplate.fromTemplate(recommendationTemplate)
 
+// Creating a chain for the standalone statement
 const standaloneStatementChain = standaloneStatementPrompt
     .pipe(llm)
     .pipe(new StringOutputParser())
 
- const retrieverChain = RunnableSequence.from([
+// Creating a chain for the retriever
+const retrieverChain = RunnableSequence.from([
     prevResult => prevResult.standalone_statement,
     retriever,
     combineDocuments
 ])
 
+// Creating a chain for the recommendation
 const recommendationChain = recommendationPrompt
     .pipe(llm)
     .pipe(new StringOutputParser())
 
+// Creating a sequence of chains
 const chain = RunnableSequence.from([
     {
       standalone_statement: standaloneStatementChain,
@@ -61,5 +75,5 @@ const chain = RunnableSequence.from([
     recommendationChain
 ])
 
-
+// Exporting the chain
 export { chain }
