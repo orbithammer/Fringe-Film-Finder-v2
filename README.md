@@ -1,6 +1,6 @@
 # Fringe Film Finder
 
-Fringe Film Finder is a React application that uses an AI model to recommend movies based on user input.
+Fringe Film Finder is a React application that uses an AI model with LangChain to recommend movies based on user input.
 
 ## Overview
 
@@ -25,7 +25,17 @@ git clone https://https://github.com/orbithammer/Fringe-Film-Finder-v2
 npm install
 ```
 
-3. Start the application: 
+3. Set up environment variables:
+
+   - You need to provide your OpenAI API key and OpenAI Assistant key as environment variables. Create a `.env` file in the root directory of the project and add the following:
+
+     ```plaintext
+     VITE_OPENAI_API_KEY=your-openai-api-key
+     VITE_SUPABASE_API_KEY=your-supabase-api-key
+     VITE_SUPABASE_URL_LC_CHATBOT=your-supabase-project-url
+     ```
+
+4. Start the application: 
 ```
 npm start
 ```
@@ -41,4 +51,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-MIT
+[MIT](LICENSE)
