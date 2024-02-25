@@ -12,13 +12,13 @@ body {
    height: 100vh;
 }
 
-.title-wrapper {
+.titleWrapper {
   display: flex;
   align-items: center;
   margin: 0 auto;
 }
 
-.title-wrapper img {
+.titleWrapper img {
   height: 2rem;
   margin-right: 0.25rem;
 }
@@ -29,7 +29,7 @@ h1 {
   letter-spacing: -3px;
 }
 
-.chat-window {
+.chatWindow {
   display: flex;
   flex-direction: column;
   border: solid 4px #2A5DAC;
@@ -40,7 +40,7 @@ h1 {
   scroll-behavior: smooth;
 }
 
-.chat-window::-webkit-scrollbar {
+.chatWindow::-webkit-scrollbar {
 width: 0;
 }
 
@@ -73,7 +73,7 @@ width: 0;
   padding: 1rem;
 }
 
-.input-wrapper {
+.inputWrapper {
   display: flex;
   align-items: center;
   position: sticky;
@@ -82,7 +82,7 @@ width: 0;
   margin-bottom: 0.25rem;
 }
 
-.user-input {
+.userInput {
   line-height: 3rem;
   font-size: 1rem;
   max-width: 30rem;
@@ -91,7 +91,7 @@ width: 0;
   padding-left: 1rem;
 }
 
-.send-button {
+.sendButton {
   background-color: #2A5DAC;
   height: 3rem;
   width: 3rem;
@@ -99,23 +99,23 @@ width: 0;
   margin-left: 0.25rem;
 }
 
-.send-icon {
+.sendIcon {
   width: 1rem;
 }
 
-.thinking-icon {
+.thinkingIcon {
   filter: brightness(0) invert(1);
 }
 
-.input-rounded {
+.inputRounded {
   border-radius: 10px;
 }
 
-.chat-message {
+.chatMessage {
   transition: all 0.5s ease;
 }
 
-.recommendation .imdb-link {
+.recommendation .imdbLink {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -127,7 +127,7 @@ width: 0;
   margin-left: 0.5rem;
 }
 
-.imdb-link img {
+.imdbLink img {
   width: 100%;
   border-radius: 10px;
   margin-top: 0.25rem;

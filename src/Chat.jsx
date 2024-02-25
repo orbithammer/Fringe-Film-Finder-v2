@@ -26,11 +26,11 @@ const Chat = ({ convHistory, scrollToBottom }) => {
                 // Extract styled text content
                 const { markdownRemoved, src, imdbID } = styleText(message);
                 return (
-                    <div key={index} className={`chat-message ${role}`}>
+                    <div key={index} className={`chatMessage ${role}`}>
                         <div className={src ? "recommendation" : ""}>
                             {/* Render IMDB link and poster if imdbID exists */}
                             {imdbID && (
-                                <a href={`https://www.imdb.com/title/${imdbID}/`} target="_blank" rel="noopener noreferrer" className="imdb-link">
+                                <a href={`https://www.imdb.com/title/${imdbID}/`} target="_blank" rel="noopener noreferrer" className="imdbLink">
                                     Click poster for IMDB link.
                                     {src && <img src={src} alt="click here for imdb link" onLoad={scrollToBottom} />}
                                 </a>
