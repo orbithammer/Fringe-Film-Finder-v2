@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // Function to style text messages and extract src, imdbID, and markdownRemoved content
 function styleText(message) {
@@ -18,6 +18,10 @@ function styleText(message) {
 
 // Chat component
 const Chat = ({ convHistory, scrollToBottom }) => {
+    const [imageExists, setImageExists] = useState(true)
+    const handleImageError = () => {
+        setImageExists(false)
+    }
     return (
         <>
             {/* Map through conversation history and render chat messages */}
@@ -26,13 +30,18 @@ const Chat = ({ convHistory, scrollToBottom }) => {
                 // Extract styled text content
                 const { markdownRemoved, src, imdbID } = styleText(message);
                 return (
-                    <div key={index} className={`chatMessage ${role}`}>
+                    <div key={index} className={`chat-message ${role}`}>
                         <div className={src ? "recommendation" : ""}>
                             {/* Render IMDB link and poster if imdbID exists */}
                             {imdbID && (
-                                <a href={`https://www.imdb.com/title/${imdbID}/`} target="_blank" rel="noopener noreferrer" className="imdbLink">
+                                <a href={`https://www.imdb.com/title/${imdbID}/`} target="_blank" rel="noopener noreferrer" className="imdb-link">
                                     Click poster for IMDB link.
-                                    {src && <img src={src} alt="click here for imdb link" onLoad={scrollToBottom} />}
+                                    {/*Renders poster if URL returns an image file. */}
+                                    {imageExists ? (
+                                        <img src={src} alt="click here for imdb link" onLoad={scrollToBottom} onError={handleImageError} />
+                                        ) : (
+                                            <p>Image not found</p>
+                                        )}
                                 </a>
                             )}
                             <p>{markdownRemoved}</p> {/* Render processed text message */}

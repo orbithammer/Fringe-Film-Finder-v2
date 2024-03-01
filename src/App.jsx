@@ -62,18 +62,18 @@ export default function App() {
   // Render JSX
   return (
     <div className="screen">
-      <header className="titleWrapper">
+      <header className="title-wrapper">
         <img src={ClapperIcon} alt="film clapper icon" />
         <h1>Fringe Film Finder</h1>
       </header>
-      <main className="chatWindow rounded" ref={chatWindowRef}>
+      <main className="chat-window rounded" ref={chatWindowRef}>
         <Chat convHistory={convHistory} scrollToBottom={scrollToBottom} />
         {isThinking && <p className="ai rounded">(thinking...)</p>} {/* Display thinking indicator if AI is processing */}
       </main>
-      <div className="inputWrapper">
+      <div className="input-wrapper">
         <input 
           type="text" 
-          className="userInput inputRounded"
+          className="user-input input-rounded"
           value={userReply} 
           onChange={handleUserReply} 
           onKeyDown={handleKeyDown}
@@ -81,12 +81,12 @@ export default function App() {
         />
         <button 
           onClick={main} 
-          className="sendButton inputRounded" 
+          className="send-button input-rounded" 
           disabled={isThinking ? true : false} // Disable button when AI is thinking
         >
           {isThinking ? 
-            <img className="thinkingIcon" src={ThinkingIcon} alt="thinking icon" /> :
-            <img className="sendIcon" src={SendIcon} alt="send icon" />
+            <img className="thinking-icon" src={ThinkingIcon} alt="thinking icon" /> :
+            <img className="send-icon" src={SendIcon} alt="send icon" />
           }
         </button>
       </div>
